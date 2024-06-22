@@ -6,3 +6,6 @@ Copy [this](https://raw.githubusercontent.com/cajunwildcat/GBF-Time-Translator/m
 
 ## Examples
 ![Example of GW times changed](./example-images/example1.png)
+![Example of GW times changed](./example-images/example2.png)
+![Example of Battle Log times changed](./example-images/example3.png)
+![Example of Battle Results times changed](./example-images/example4.png)
