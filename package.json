@@ -2,7 +2,6 @@
   "name": "gbf-time-translator",
   "version": "1.0.0",
   "description": "",
-  "main": "source.js",
   "scripts": {
     "build": "npx bookmarklet source.js bookmarklet"
   },
