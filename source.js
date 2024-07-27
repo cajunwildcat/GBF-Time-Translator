@@ -1,6 +1,6 @@
 javascript:(function() {
     function parseAndConvertToLocal(timeString, topLevel = true) {
-        timeString = timeString.replace("(JST)", "").replaceAll(".", "").replaceAll(",", "").replace("–","-").trim();
+        timeString = timeString.replace("Period:","").replace("(JST)", "").replaceAll(".", "").replaceAll(",", "").replace("–","-").trim();
         const now = new Date();
         const timeZone = now.toLocaleDateString(undefined, {timeZoneName: 'short' }).slice(-3);
     
@@ -69,7 +69,7 @@ javascript:(function() {
         return fullString.replace("__replace__", timeString) + `${topLevel? " " + timeZone : ""}`;
     }
         
-    document.querySelectorAll('*[class*="time"]:not(.local-time), .prt-bar-txt:not(.local-time), *[class*="period"]:not(.local-time), .txt-defeat-value:not(.local-time)').forEach(element => {
+    document.querySelectorAll('*[class*="time"]:not(.local-time), .prt-bar-txt:not(.local-time), *[class*="period"]:not(.local-time), .txt-defeat-value:not(.local-time), .txt-teaser-title:not(.local-time)').forEach(element => {
         const convertedTime = parseAndConvertToLocal(element.innerHTML);
         if (!convertedTime.includes("Invalid Date")) {
             element.innerHTML = convertedTime;
