@@ -68,8 +68,16 @@ javascript:(function() {
         if (minute == undefined) timeString = timeString.replace(":00", "");
         return fullString.replace("__replace__", timeString) + `${topLevel? " " + timeZone : ""}`;
     }
-        
-    document.querySelectorAll('*[class*="time"]:not(.local-time), .prt-bar-txt:not(.local-time), *[class*="period"]:not(.local-time), .txt-defeat-value:not(.local-time), .txt-teaser-title:not(.local-time)').forEach(element => {
+    
+    const selectors = [
+        '*[class*="time"]',
+        '.prt-bar-txt',
+        '*[class*="period"]',
+        '.txt-defeat-value',
+        '.txt-teaser-title',
+        '.txt-schedule'
+    ].map(e=>`${e}:not(.local-time)`);
+    document.querySelectorAll(selectors.join(', ')).forEach(element => {
         const convertedTime = parseAndConvertToLocal(element.innerHTML);
         if (!convertedTime.includes("Invalid Date")) {
             element.innerHTML = convertedTime;
